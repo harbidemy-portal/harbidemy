@@ -4,8 +4,8 @@ export async function POST(req: NextRequest) {
   try {
     const { email, password } = await req.json()
 
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim()
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim()
 
     if (!supabaseUrl || !supabaseKey) {
       return NextResponse.json({ error: 'Server configuration error: missing Supabase credentials.' }, { status: 500 })
