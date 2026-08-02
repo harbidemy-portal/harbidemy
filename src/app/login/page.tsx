@@ -35,8 +35,8 @@ export default function Login() {
 
       // Set the session client-side using the returned tokens
       const { error: sessionError } = await supabase.auth.setSession({
-        access_token: data.access_token,
-        refresh_token: data.refresh_token,
+        access_token: data.session?.access_token || data.access_token,
+        refresh_token: data.session?.refresh_token || data.refresh_token,
       })
 
       if (sessionError) {
