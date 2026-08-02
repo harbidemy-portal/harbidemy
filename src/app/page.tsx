@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
-import { CheckCircle, ArrowRight, BookOpen, Users, GraduationCap, Laptop, Building2, TrendingUp, Sparkles, Target, Award } from 'lucide-react'
+import { CheckCircle, ArrowRight, BookOpen, Users, GraduationCap, Laptop, Building2, TrendingUp, Sparkles, Target, Award, Phone, Mail } from 'lucide-react'
 
 // Content Data
 const heroWords = ['Schools', 'Students', 'Futures', 'Excellence']
@@ -281,20 +281,33 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-white border-t border-gray-100 py-16 px-6">
-        <div className="max-w-7xl mx-auto text-center md:text-left grid md:grid-cols-3 gap-10">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
           <div>
-            <div className="flex items-center justify-center md:justify-start gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 bg-yellow-400 rounded-lg flex items-center justify-center">
                 <Sparkles className="w-5 h-5 text-blue-900" />
               </div>
               <span className="text-2xl font-extrabold text-blue-950">HARBIDEMY</span>
             </div>
-            <p className="text-gray-500 max-w-sm mx-auto md:mx-0">
+            <p className="text-gray-500 max-w-sm">
               Your Trusted Partner in Educational Excellence. Shaping futures and inspiring success globally.
             </p>
           </div>
-          <div className="md:text-right md:col-span-2 flex flex-col justify-end">
-            <div className="flex flex-wrap justify-center md:justify-end gap-6 mb-6 font-semibold text-gray-600">
+          
+          <div className="flex flex-col gap-4">
+            <h4 className="font-bold text-gray-900 text-lg mb-2">Contact Us</h4>
+            <div className="flex items-center gap-3 text-gray-600">
+              <Mail className="w-5 h-5 text-yellow-500" />
+              <a href="mailto:harbidemy400@gmail.com" className="hover:text-blue-600 transition">harbidemy400@gmail.com</a>
+            </div>
+            <div className="flex items-center gap-3 text-gray-600">
+              <Phone className="w-5 h-5 text-yellow-500" />
+              <a href="tel:+2347068627546" className="hover:text-blue-600 transition">+234 706 862 7546</a>
+            </div>
+          </div>
+
+          <div className="md:text-right flex flex-col justify-between">
+            <div className="flex flex-wrap md:justify-end gap-6 mb-6 font-semibold text-gray-600">
               <Link href="#" className="hover:text-blue-600 transition">About Us</Link>
               <Link href="#" className="hover:text-blue-600 transition">Services</Link>
               <Link href="/login" className="hover:text-blue-600 transition">Portal Login</Link>
