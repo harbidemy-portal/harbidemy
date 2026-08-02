@@ -118,7 +118,7 @@ export default function Home() {
             </div>
             
             <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight tracking-tight">
-              HARBIDEMY <span className="text-yellow-400">Portal</span>
+              HARBIDEMY <span className="text-yellow-400">Consult</span>
             </h1>
             
             <div className="text-3xl md:text-5xl font-bold text-white mb-8 h-16 md:h-20 flex items-center">
