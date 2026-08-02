@@ -15,45 +15,45 @@ const services = [
     icon: <Building2 className="w-6 h-6" />,
     title: "School Management",
     desc: "Comprehensive administration support, policy formulation, accreditation guidance, and staff recruitment.",
-    image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=800"
+    image: "/images/admin.jpg"
   },
   {
     icon: <Users className="w-6 h-6" />,
     title: "Student Mentoring",
     desc: "Record management, academic monitoring, personalized counseling, and career guidance.",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800"
+    image: "/images/mentoring.jpg"
   },
   {
     icon: <Target className="w-6 h-6" />,
     title: "Examination Success",
     desc: "WAEC, NECO, JAMB/UTME preparation, mock exams, and advanced study techniques.",
-    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800"
+    image: "/images/cbt.jpg"
   },
   {
     icon: <GraduationCap className="w-6 h-6" />,
     title: "Admission Services",
     desc: "Seamless Nigeria & international admissions, visa guidance, and scholarship support.",
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800"
+    image: "/images/admissions.jpg"
   },
   {
     icon: <Laptop className="w-6 h-6" />,
     title: "Educational Tech",
     desc: "State-of-the-art school software, CBT solutions, and digital result processing systems.",
-    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&q=80&w=800"
+    image: "/images/hero.jpg"
   },
   {
     icon: <TrendingUp className="w-6 h-6" />,
     title: "EduCare Consultancy",
     desc: "Educational planning, curriculum development, research, and teacher professional development.",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
+    image: "/images/educare.jpg"
   },
 ]
 
 const galleryImages = [
-  { url: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800", span: "col-span-1 row-span-2" },
-  { url: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800", span: "col-span-2 row-span-1" },
-  { url: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800", span: "col-span-1 row-span-1" },
-  { url: "https://images.unsplash.com/photo-1427504494785-319ce227ce5f?auto=format&fit=crop&q=80&w=800", span: "col-span-1 row-span-1" },
+  { url: "/images/hero.jpg", span: "col-span-1 row-span-2" },
+  { url: "/images/mentoring.jpg", span: "col-span-2 row-span-1" },
+  { url: "/images/educare.jpg", span: "col-span-1 row-span-1" },
+  { url: "/images/cbt.jpg", span: "col-span-1 row-span-1" },
 ]
 
 export default function Home() {
@@ -78,7 +78,7 @@ export default function Home() {
         {/* Background Image & Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=1920" 
+            src="/images/hero.jpg" 
             alt="Campus" 
             className="w-full h-full object-cover"
           />
@@ -142,7 +142,7 @@ export default function Home() {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 rotate-2 hover:rotate-0 transition-transform duration-500">
               <img 
-                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800" 
+                src="/images/admissions.jpg" 
                 alt="Student studying" 
                 className="w-full h-auto object-cover"
               />
