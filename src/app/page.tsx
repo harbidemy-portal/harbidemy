@@ -73,8 +73,28 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-50 overflow-hidden">
       
+      {/* 0. NAVBAR */}
+      <nav className="absolute top-0 w-full z-50 py-6 px-6">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-xl overflow-hidden shadow-lg border-2 border-white/10">
+              <img src="/logo.jpg" alt="Harbidemy Logo" className="w-full h-full object-cover" />
+            </div>
+            <span className="text-2xl font-extrabold text-white tracking-tight drop-shadow-md">HARBIDEMY</span>
+          </Link>
+          <div className="hidden md:flex items-center gap-4">
+            <Link href="/login" className="text-white hover:text-yellow-400 font-semibold transition">
+              Portal Login
+            </Link>
+            <Link href="/signup" className="bg-yellow-400 text-blue-900 px-6 py-2.5 rounded-full font-bold hover:bg-yellow-300 transition shadow-lg">
+              Create Account
+            </Link>
+          </div>
+        </div>
+      </nav>
+
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20 pb-12 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center pt-28 pb-12 overflow-hidden">
         {/* Background Image & Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -284,8 +304,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-yellow-400 rounded-lg flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-blue-900" />
+              <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center shadow-sm">
+                <img src="/logo.jpg" alt="Harbidemy Logo" className="w-full h-full object-cover" />
               </div>
               <span className="text-2xl font-extrabold text-blue-950">HARBIDEMY</span>
             </div>
