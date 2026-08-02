@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useAuth } from '@/context/AuthContext'
+import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
@@ -10,7 +10,6 @@ export default function Login() {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const { signIn } = useAuth()
   const router = useRouter()
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -18,12 +17,38 @@ export default function Login() {
     setLoading(true)
     setError(null)
 
-    const { error } = await signIn(email, password)
-    if (error) {
-      setError(error)
-      setLoading(false)
-    } else {
+    try {
+      // Call our server-side API route (bypasses CORS)
+      const res = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        setError(data.error || 'Invalid email or password.')
+        setLoading(false)
+        return
+      }
+
+      // Set the session client-side using the returned tokens
+      const { error: sessionError } = await supabase.auth.setSession({
+        access_token: data.access_token,
+        refresh_token: data.refresh_token,
+      })
+
+      if (sessionError) {
+        setError(sessionError.message)
+        setLoading(false)
+        return
+      }
+
       router.push('/dashboard')
+    } catch (err: any) {
+      setError('Network error. Please check your connection.')
+      setLoading(false)
     }
   }
 

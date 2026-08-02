@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { useAuth } from '@/context/AuthContext'
 import Link from 'next/link'
 
 export default function SignUp() {
@@ -13,8 +12,6 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [success, setSuccess] = useState(false)
-  const { signUp } = useAuth()
-
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault()
     setError(null)
@@ -29,11 +26,20 @@ export default function SignUp() {
     }
 
     setLoading(true)
-    const { error } = await signUp(email, password)
-    if (error) {
-      setError(error)
-    } else {
-      setSuccess(true)
+    try {
+      const res = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      })
+      const data = await res.json()
+      if (!res.ok) {
+        setError(data.error || 'Signup failed. Please try again.')
+      } else {
+        setSuccess(true)
+      }
+    } catch (err: any) {
+      setError('Network error. Please check your connection.')
     }
     setLoading(false)
   }
